@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: hotel-searches-challenge
+  kafka:
+    bootstrap-servers: localhost:29092
+    producer:
+      client-id: ${spring.application.name}
+      key-serializer: org.apache.kafka.common.serialization.UUIDSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+    consumer:
+      client-id: ${spring.application.name}
+      group-id: ${spring.application.name}
+      key-deserializer: org.apache.kafka.common.serialization.UUIDDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+    properties:
+      schema.registry.url: http://localhost:8081
+      specific.avro.reader: true
+      topic:
+        name: hotel_availability_searches
+        partitions: 1
+        replication: 1
+  data:
+    mongodb:
+      auto-index-creation: true

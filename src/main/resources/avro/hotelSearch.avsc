@@ -1,0 +1,44 @@
+{
+  "type": "record",
+  "namespace": "com.travel.hotelsearcheschallenge.infrastructure.kafka",
+  "name": "HotelSearchEvent",
+  "fields": [
+    {
+      "name": "searchId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "name": "hotelId",
+      "type": {
+        "type": "string",
+        "logicalType": "uuid"
+      }
+    },
+    {
+      "name": "checkIn",
+      "type": {
+        "type": "int",
+        "logicalType": "date"
+      }
+    },
+    {
+      "name": "checkOut",
+      "type": {
+        "type": "int",
+        "logicalType": "date"
+      }
+    },
+    {
+      "name": "ages",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "int"
+        }
+      }
+    }
+  ]
+}
